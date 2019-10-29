@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    FILE*fin=fopen("input.txt","r");
+    FILE*fout=fopen("output.txt","w");
+    int A[11];
+    A[0]=0;
+    int x,y,size_corners=0,size_center=0,num=0;
+    for (int j = 1; j < 5; ++j) {
+        fscanf(fin,"%i",&A[j]);
+    }
+    fscanf(fin,"%i%i",&x,&y);
+    A[5]=A[1];
+    A[7]=A[3];
+    A[6]=A[4];
+    A[8]=A[2];
+    A[9]=(A[1]+A[3])/2;
+    A[10]=(A[2]+A[4])/2;
+    size_center=((A[9]-x)*(A[9]-x))+((A[10]-y)*(A[10]-y));
+    for (int i = 1; i < 9; ++i) {
+        if ((A[i]-x)*(A[i]-x)+(A[i+1]-y)*(A[i+1]-y)<size_center){
+            num+=1;
+        }
+    }
+    if (num>0){
+        fprintf(fout,"CORNER");
+    }else{
+        fprintf(fout,"CENTER");
+    }
+    fclose(fin);
+    fclose(fout);
+    return 0;
+}
