@@ -8,6 +8,4 @@ language and methods of programming
 
 Забор по феншую
 
-Редактор уровней с грибами
-
 GREP
