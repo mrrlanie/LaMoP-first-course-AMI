@@ -6,7 +6,7 @@ int main() {
     
    int N ,A ,C ,t ,r ,m ,call_money = 0;
    
-    fscanf(fin,"%i%i%i", &N, &A, &C);
+    fscanf(fin, "%i%i%i", &N, &A, &C);
     for (int i = 0; i < N; ++i) {
         fscanf(fin, "%i%i%i", &t, &r, &m);
         if ((m > t * C) && (A >= r)){
@@ -17,7 +17,7 @@ int main() {
         }
     }
     A = A - call_money;
-    fprintf(fout,"%i",A);
+    fprintf(fout, "%i", A);
     
     fclose(fin);
     fclose(fout);
