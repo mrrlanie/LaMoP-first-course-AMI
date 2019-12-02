@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fin = fopen("input.txt", "r");
+    FILE *fout = fopen("output.txt", "w");
+
+    int N, init, count1 = 0, count2 = 0;
+    fscanf(fin, "%i", &N);
+
+    int case_1[N], case_2[N];       //case_1 == b1>b2<b3>... , case_2 == b1<b2>b3<...
+    for (int i = 0; i < N; ++i) {
+        fscanf(fin, "%i", &init);
+        case_1[i] = init;
+        case_2[i] = init;
+    }
+
+    for (int j = 0; j < N - 1; j += 2) {
+        if ((case_1[j] > case_1[j + 1]) && (case_1[j + 1] < case_1[j + 2])) {
+        } else {
+            while (case_1[j + 1] >= case_1[j]) {
+                case_1[j]++;
+                count1++;
+            }
+            if (j != N - 2){
+            while (case_1[j + 1] >= case_1[j + 2]) {
+                case_1[j + 2]++;
+                count1++;
+            }
+            }
+        }
+    }
+    for (int j = 0; j < N - 1; j += 2) {
+        if ((case_2[j] < case_2[j + 1]) && (case_2[j + 1] > case_2[j + 2])) {
+        } else {
+            while (case_2[j + 1] <= case_2[j]) {
+                case_2[j + 1]++;
+                count2++;
+            }
+            if (j != N - 2) {
+                while (case_2[j + 1] <= case_2[j + 2]) {
+                    case_2[j + 1]++;
+                    count2 ++;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        if (count1 >= count2) {
+            fprintf(fout, "%d ", case_2[i]);
+        } else if (count2 >= count1){
+            fprintf(fout, "%d ", case_1[i]);
+        }
+    }
+}
