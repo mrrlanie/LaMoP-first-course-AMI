@@ -25,7 +25,7 @@ int main() {
     }
 
     if (sum == 0){
-        fprintf(fout,"%s","-1");
+        fprintf(fout, "%s", "-1");
     }else {
         fprintf(fout, "%d", sum);
     }
