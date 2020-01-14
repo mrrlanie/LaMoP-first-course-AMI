@@ -1,7 +1,5 @@
 # labs-of-lampr
-language and methods of programming
-
-Решенные задачи по предмету <<Языки и методы программирования>>.
+language and methods of programming (1 course of AMI)
 
 //TODO:
 
